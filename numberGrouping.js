@@ -6,7 +6,21 @@ Kelompokkan angka dalam 3 nested array.
 */
 
 function numberGrouping(numbers) {
-  // Code here
+  const result = [[], [], []];
+
+  for (let num of numbers) {
+    if (num % 2 === 0) {
+      result[0].push(num); // Angka genap
+    }
+    if (num % 2 !== 0) {
+      result[1].push(num); // Angka ganjil
+    }
+    if (num % 3 === 0) {
+      result[2].push(num); // Angka yang bisa dibagi 3
+    }
+  }
+
+  return result;
 }
 
-numberGrouping([1, 2, 4, 6, 8]) // Output: [[2, 4, 8], [1], [6]]
+console.log(numberGrouping([1, 2, 4, 6, 8])) // Output: [[2, 4, 8], [1], [6]]
